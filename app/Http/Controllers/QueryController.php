@@ -28,4 +28,15 @@ class QueryController extends Controller {
         $result = DB::table( 'brands' )->pluck( 'brandName', "id" );
         return $result;
     }
+
+    // Aggregates method
+    function aggregates() {
+        $count = DB::table( 'products' )->count();
+        $max = DB::table( 'products' )->max( 'price' );
+        $min = DB::table( 'products' )->min( 'price' );
+        $avg = DB::table( 'products' )->avg( 'price' );
+        $sum = DB::table( 'products' )->sum( 'price' );
+
+        return ['count' => $count, 'max' => $max, 'min' => $min, 'avg' => $avg, 'sum' => $sum];
+    }
 }
