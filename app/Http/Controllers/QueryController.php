@@ -147,4 +147,47 @@ class QueryController extends Controller {
         return $result;
     }
 
+    // Ordering
+    function orderBy() {
+        $affected = DB::table( 'brands' )
+            ->orderBy( 'brandName', 'desc' )
+            ->get();
+        return $affected;
+    }
+
+    function randomOrder() {
+        $affected = DB::table( 'brands' )
+            ->inRandomOrder()
+            ->first();
+        return $affected;
+    }
+
+    // Latest & Oldest
+    function latest() {
+        $affected = DB::table( 'brands' )->latest()->first();
+        return $affected;
+    }
+
+    function oldest() {
+        $affected = DB::table( 'brands' )->oldest()->first();
+        return $affected;
+    }
+
+    // Skip & Take
+    function skipTake() {
+        $affected = DB::table( 'products' )
+            ->skip( 2 )
+            ->take( 3 )
+            ->get();
+        return $affected;
+    }
+
+    // groupBy and having
+        function having() {
+        $affected = DB::table( 'products' )
+            ->groupBy( 'price' )
+            ->having( 'price', '>', 2000 )
+            ->get();
+        return $affected;
+    }
 }

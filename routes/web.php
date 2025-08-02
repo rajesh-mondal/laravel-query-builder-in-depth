@@ -25,3 +25,10 @@ Route::get( '/whereNull', [QueryController::class, 'whereNull'] );
 Route::get( '/whereIn', [QueryController::class, 'whereIn'] );
 Route::get( '/whereDateTime', [QueryController::class, 'whereDateTime'] );
 Route::get( '/whereColumn', [QueryController::class, 'whereColumn'] );
+
+Route::get( '/orderBy', [QueryController::class, 'orderBy'] );
+Route::get( '/randomOrder', [QueryController::class, 'randomOrder'] );
+Route::get( '/latest', [QueryController::class, 'latest'] );
+Route::get( '/oldest', [QueryController::class, 'oldest'] );
+Route::get( '/skipTake', [QueryController::class, 'skipTake'] );
+Route::get( '/having', [QueryController::class, 'having'] );
