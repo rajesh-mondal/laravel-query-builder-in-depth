@@ -34,3 +34,5 @@ Route::get( '/skipTake', [QueryController::class, 'skipTake'] );
 Route::get( '/having', [QueryController::class, 'having'] );
 
 Route::get( '/insert', [QueryController::class, 'insert'] );
+
+Route::get( '/pagination', [QueryController::class, 'pagination'] );

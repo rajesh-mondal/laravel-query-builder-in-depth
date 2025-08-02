@@ -12,3 +12,5 @@ Route::post( '/insert-request', [QueryController::class, 'insertRequest'] );
 Route::post( '/update/{id}', [QueryController::class, 'update'] );
 Route::post( '/upsert/{brandName}', [QueryController::class, 'updateOrInsert'] );
 Route::post( '/delete/{id}', [QueryController::class, 'delete'] );
+
+Route::post( '/increment/{id}', [QueryController::class, 'incrementDecrement'] );

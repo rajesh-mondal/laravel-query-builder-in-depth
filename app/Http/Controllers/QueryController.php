@@ -238,4 +238,21 @@ class QueryController extends Controller {
         return $delete;
     }
 
+    // Increment & Decrement
+    function incrementDecrement( Request $request ){
+        $result = DB::table( 'products' )
+            ->where( 'id', $request->id )
+            ->increment(  'price', 2 );
+            // ->decrement( 'price', 4 );
+        return $result;
+    }
+
+    // Paginate
+    function pagination() {
+        $result = DB::table( 'products' )
+            // ->paginate( 5 );
+            ->simplePaginate( 5 );
+        return $result;
+    }
+
 }
