@@ -18,3 +18,10 @@ Route::get( '/crossJoin', [QueryController::class, 'crossJoin'] );
 Route::get( '/advancedJoin', [QueryController::class, 'advancedJoin'] );
 
 Route::get( '/union', [QueryController::class, 'union'] );
+
+Route::get( '/whereClause', [QueryController::class, 'whereClause'] );
+Route::get( '/advanceWhere', [QueryController::class, 'advanceWhere'] );
+Route::get( '/whereNull', [QueryController::class, 'whereNull'] );
+Route::get( '/whereIn', [QueryController::class, 'whereIn'] );
+Route::get( '/whereDateTime', [QueryController::class, 'whereDateTime'] );
+Route::get( '/whereColumn', [QueryController::class, 'whereColumn'] );
