@@ -32,3 +32,5 @@ Route::get( '/latest', [QueryController::class, 'latest'] );
 Route::get( '/oldest', [QueryController::class, 'oldest'] );
 Route::get( '/skipTake', [QueryController::class, 'skipTake'] );
 Route::get( '/having', [QueryController::class, 'having'] );
+
+Route::get( '/insert', [QueryController::class, 'insert'] );

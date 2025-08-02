@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
 
@@ -190,4 +191,51 @@ class QueryController extends Controller {
             ->get();
         return $affected;
     }
+
+    // Insert Statements
+    function insert() {
+        $result = DB::table( 'brands' )
+            ->insert( [
+                'brandName' => 'Demo Brand',
+                'brandImg'  => 'Demo Immg',
+            ] );
+        return $result;
+    }
+
+    function insertRequest( Request $request ) {
+        $result = DB::table( 'brands' )
+            // ->insert( $request->input() );
+            ->insert( [
+                'brandName' => $request->input( 'brandName' ),
+                'brandImg'  => $request->input( 'brandImg' ),
+            ] );
+        return $result;
+    }
+
+    // Update Statements
+    function update( Request $request ) {
+        $result = DB::table( 'brands' )
+            ->where( 'id', '=', $request->id )
+            ->update( $request->input() );
+        return $result;
+    }
+
+    // Update or Insert Statements
+    function updateOrInsert( Request $request ) {
+        $result = DB::table( 'brands' )
+            ->updateOrInsert(
+                ['brandName' => $request->brandName],
+                $request->input()
+            );
+        return $result;
+    }
+
+    // Delete Statements
+    function delete( Request $request ) {
+        $delete = DB::table( 'brands' )
+            ->where( 'id', $request->id )
+            ->delete();
+        return $delete;
+    }
+
 }
